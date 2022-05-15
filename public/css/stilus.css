@@ -1,0 +1,75 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+    min-height: 100vh;
+}
+main{
+    width:80%;
+    margin:auto;
+    max-width: 1500px;
+    background-color: lightgray;
+}
+.sor{
+    display:grid;
+    grid-template-columns: repeat(7,1fr);
+}
+#modosito-urlap{
+    display: none;
+}
+img{
+    width:200px;
+}
+#ingatlanok{
+    text-align: center;
+}
+.erdekel{
+    display:none;
+}
+@media only screen and (max-width: 800px) {
+    main {
+        width:97%;
+      background-color: lightblue;
+    }
+    .sor{
+        grid-template-columns: 1fr;
+        border: 1px solid black;
+    }
+    #ingatlanok{
+        display:grid;
+        grid-template-columns: repeat(2,1fr);
+        background-color: white;
+     
+    }
+    .gomb-tarolo{
+        display:none;
+    }
+    .hirdetes-datum{
+        display:none;
+    }
+    .hirdetes-nev{
+        display:none;
+    }
+    .hirdetes-allapot{
+        display:none;
+    }
+    .tablehead{
+        display:none;
+    }
+    .erdekel{
+        display:block;
+        background:blue;
+        color:white;
+        
+    }
+    .erdekel-gomb{
+        display:grid;
+        place-items: center;
+    }
+    section{
+        display:none;
+    }
+  }
