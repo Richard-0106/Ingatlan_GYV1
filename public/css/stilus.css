@@ -16,6 +16,10 @@ main{
 .sor{
     display:grid;
     grid-template-columns: repeat(7,1fr);
+    /* border:1px solid black; */
+}
+.sor > div{
+    border:1px solid black;
 }
 #modosito-urlap{
     display: none;
@@ -26,7 +30,7 @@ img{
 #ingatlanok{
     text-align: center;
 }
-.erdekel{
+.erdekel-gomb{
     display:none;
 }
 @media only screen and (max-width: 800px) {
@@ -36,11 +40,15 @@ img{
     }
     .sor{
         grid-template-columns: 1fr;
-        border: 1px solid black;
+        width: 50%;
+        min-width: 200px;
     }
+
     #ingatlanok{
-        display:grid;
-        grid-template-columns: repeat(2,1fr);
+        display:flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
         background-color: white;
      
     }
@@ -60,10 +68,11 @@ img{
         display:none;
     }
     .erdekel{
-        display:block;
         background:blue;
         color:white;
-        
+    }
+    .erdekel-gomb{
+        display:block;
     }
     .erdekel-gomb{
         display:grid;

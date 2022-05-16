@@ -15,17 +15,21 @@ $(function () {
         $("#ingatlanok").empty()
         //  $("#ingatlanok").append("<thead><th>Kategoria</th><th>Leírás</th><th>Hirdetés dátuma</th><th>Tehermentes</th><th>Fénykép</th></thead>")
         // $("#ingatlanok").append("<tbody></tbody>")
-        $("#ingatlanok").append("<div class='sor tablehead'><div>Kategoria</div><div>Leírás</div><div>Hirdetés dátuma</div><div>Tehermentes</div><div>Fénykép</div></div>")
+        $("#ingatlanok").append("<div class='sor tablehead'><div class='kategoria'>Kategoria</div><div class='leiras rendez'>Leírás</div><div class='hirdetesDatuma rendez'>Hirdetés dátuma</div><div>Tehermentes</div><div>Fénykép</div></div>")
 
         for (let index = 0; index < tomb.length; index++) {
             const element = tomb[index];
             const elem = $("<div class='sor '></div>").appendTo("#ingatlanok")
             new Ingatlan(elem, element)
         }
+        $(".rendez").on("click",function(){
+            let ertek = $(this).attr("class").split(/\s+/)[0]
+            ajax.getAjax("/rendez=" + ertek, tablazatKiir)
+        })
     }
 
     $(window).on("Erdekel", (esemeny) => {
-        alert(esemeny.detail.kategoria.nev+" "+esemeny.detail.leiras)
+        alert(esemeny.detail.kategoria.nev + " " + esemeny.detail.leiras)
     })
     //Törlés Módosítás
     $(window).on("Torles", (esemeny) => {
@@ -68,5 +72,14 @@ $(function () {
         }
         console.log(adat)
         ajax.postAjax("/ingatlanok", adat)
+    })
+    $("#keres").on("keyup", function () {
+        let ertek = $(this).val()
+        if(ertek===""){
+            ajax.getAjax("/ingatlanok", tablazatKiir)
+        }
+        else{
+            ajax.getAjax("/keres=" + ertek, tablazatKiir)
+        }
     })
 })

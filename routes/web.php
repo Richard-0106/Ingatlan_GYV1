@@ -19,6 +19,8 @@ Route::get('/', function () {
 });
 Route::post('/ingatlanok',[IngatlanController::class,'store']);
 Route::delete('/ingatlanok/{id}',[IngatlanController::class,'destroy']);
+Route::get('/keres={ertek}',[IngatlanController::class,'keres']);
+Route::get('/rendez={ertek}',[IngatlanController::class,'rendez']);
 Route::get('/kategoriak',[KategoriaController::class,'index']);
 Route::get('/ingatlanok',[IngatlanController::class,'index']);
 Route::put('/ingatlanok/{id}',[IngatlanController::class,'update']);
